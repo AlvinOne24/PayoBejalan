@@ -19,9 +19,10 @@
         android:layout_marginBottom="32dp"/>
 
     <EditText
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_nomor"
+        android:id="@+id/et_nama"
         android:hint="Nama Destinasi"
         android:inputType="text"/>
 
@@ -40,6 +41,7 @@
         android:inputType="text"/>
 
     <Button
+        android:id="@+id/btn_tambah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
