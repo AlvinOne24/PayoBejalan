@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 
@@ -12,6 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fabTambah;
     private RecyclerView rvDestinasi;
+    private MyDatabaseHelper myDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +29,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, TambahActivity.class));
             }
         });
+
+        myDB = new MyDatabaseHelper(MainActivity.this);
+    }
+
+    private void SQLLiteToArrayList(){
+
+    }
+
+    private void tampilDestinasi(){
+
     }
 }
