@@ -7,13 +7,19 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fabTambah;
     private RecyclerView rvDestinasi;
     private MyDatabaseHelper myDB;
+    private ArrayList<String> arrNAma, arrAlamat, arrJam;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +40,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void SQLLiteToArrayList(){
-
+        Cursor varCursor = myDB.bacaDataDestinasi();
+        if(varCursor.getCount() == 0){
+            Toast.makeText(this, "Data Tidak Tersedia", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            while (varCursor.moveToNext()){
+                arrNAma.add(varCursor.getString(1));
+                arrAlamat.add(varCursor.getString(2));
+                arrJam.add(varCursor.getString(3));
+            }
+        }
     }
 
     private void tampilDestinasi(){
+        arrNAma = new ArrayList<>();
+        arrAlamat = new ArrayList<>();
+        arrJam = new ArrayList<>();
 
+        SQLLiteToArrayList();
+
+        ad
     }
 }
