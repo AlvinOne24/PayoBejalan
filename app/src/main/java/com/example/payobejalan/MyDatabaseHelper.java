@@ -68,7 +68,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor bacaDataDestinasi(){
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT + FORM" +TABLE_NAME;
+        String query = "SELECT * FROM " +TABLE_NAME;
 
         Cursor varCursor = null;
         if(db!=null){

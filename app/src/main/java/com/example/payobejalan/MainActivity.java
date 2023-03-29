@@ -1,6 +1,7 @@
 package com.example.payobejalan;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvDestinasi;
     private MyDatabaseHelper myDB;
     private ArrayList<String> arrNAma, arrAlamat, arrJam;
+    private AdapterDestinasi adDestinasi;
 
 
     @Override
@@ -60,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
 
         SQLLiteToArrayList();
 
-        ad
+        adDestinasi = new AdapterDestinasi(MainActivity.this,arrNAma, arrAlamat, arrJam);
+        rvDestinasi.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        rvDestinasi.setAdapter(adDestinasi);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        tampilDestinasi();
     }
 }

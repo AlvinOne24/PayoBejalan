@@ -41,7 +41,7 @@ public class AdapterDestinasi extends RecyclerView.Adapter<AdapterDestinasi.View
 
     @Override
     public int getItemCount() {
-        return 0;
+        return arrAlamat.size();
     }
 
     public class ViewHolderDestinasi extends RecyclerView.ViewHolder{
