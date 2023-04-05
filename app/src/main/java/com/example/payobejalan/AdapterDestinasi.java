@@ -2,6 +2,7 @@ package com.example.payobejalan;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,7 +69,20 @@ public class AdapterDestinasi extends RecyclerView.Adapter<AdapterDestinasi.View
                     pesan.setPositiveButton("Ubah", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            //rabu
+                            String id,nama, alamat, jam;
 
+                            id = tvId.getText().toString();
+                            nama = tvNama.getText().toString();
+                            alamat = tvAlamat.getText().toString();
+                            jam = tvJam.getText().toString();
+
+                            Intent kirim = new Intent(ctx,UbahActivity.class);
+                            kirim.putExtra("xId",id);
+                            kirim.putExtra("xNama",nama);
+                            kirim.putExtra("xAlamat",alamat);
+                            kirim.putExtra("xJam",jam);
+                            ctx.startActivity(kirim);
                         }
                     });
 
